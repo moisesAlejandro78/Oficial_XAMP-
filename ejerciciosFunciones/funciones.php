@@ -117,6 +117,9 @@
     <?php
         if (isset($_POST["c"])) {
             $numCollatz=(int)$_POST["c"];
+            conjeturaCollatz($numCollatz);
+        }
+        function conjeturaCollatz($numCollatz){
             echo $numCollatz."<br>";
             if (is_int($numCollatz)&&$numCollatz>0) {
                 while (true) {
@@ -146,15 +149,68 @@
     if (isset($_POST["Amstrong"])) {
         # code...
         $nAmstrong=(int)$_POST["Amstrong"];
-        if ($nAmstrong>100&&$nAmstrong<1000) {
+        verificarNumAmstrong($nAmstrong);
+    }
+    function verificarNumAmstrong($nAmstrong){
+        if ($nAmstrong>=100&&$nAmstrong<1000) {
             # code...
             $unidades=0;
-            while (true) {
-                $unidades=$unidades%10;
-                
+            $exponente=0;
+            $copia=$nAmstrong;
+            while ($nAmstrong>0) {
+                $unidades=$nAmstrong%10;
+                //echo $unidades." unidades<br>";
+                $nAmstrong=$nAmstrong/10;
+                //echo $nAmstrong." anstrong<br>";
+                $exponente+=($unidades**3);
+                //echo $exponente." exponenete<br>";
+            }
+            if ($copia==$exponente) {
+                # code...
+                echo $exponente. " El numero es un anstrong";
+            }
+            else{
+                Echo $exponente." no es un amstrong";
             }
         }
+        else{
+            echo "ingrese un numero de 3 digitos";
+        }
     }
-    ?>//prueba...
+    ?>
+    <h2> Imprimir un patrón numérico de triángulo rectángulo</h2>
+    <?php
+        $altura=8;
+        mostrarTrianguloRectangulo($altura);
+        function mostrarTrianguloRectangulo($altura){
+            $valorNum=1;
+            for ($i=0; $i < $altura; $i++) { 
+                # code...
+                echo "<br>";
+                for ($j=1; $j <=$valorNum ; $j++) { 
+                    # code...
+                    echo $j;
+                }
+                $valorNum++;
+            }
+        }
+    ?>
+    <h2>Imprimir un patron decreciente</h2>
+    <?php
+        $altura=8;
+        trianguloDecreciente($altura);
+        function trianguloDecreciente($altura){
+            $reduccion=$altura;
+            for ($i=0; $i <$altura ; $i++) { 
+                # code...
+                echo "<br>";
+                for ($j=$reduccion; $j>0; $j--) { 
+                    # code...
+                    echo $j;
+                }
+                $reduccion--;
+            }
+        }
+    ?>
 </body>
 </html>
