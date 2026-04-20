@@ -1,4 +1,5 @@
 <?php
+    echo "Menejo completo de errores <br>";
     if ($_FILES['file1']['error']==UPLOAD_ERR_OK) {
         # code...
         echo   "Archivo subido correctamente";
