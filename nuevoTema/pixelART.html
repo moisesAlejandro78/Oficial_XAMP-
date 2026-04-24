@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piexel art para Divertirse</title>
+</head>
+<body>
+    <!-- <canvas id="lienzo" height="400" width="400"></canvas> -->
+    <div id="prueba"></div>
+    <script>
+        let lienzo=document.getElementById('prueba');
+        //let canvas=lienzo.getContext('2d');
+        let tam=5; let array=[];
+        for (let index = 0; index < tam; index++) {
+            array[index]=[];
+            for (let index2 = 0; index2 < tam; index2++) {
+                if (index+index2%2==0) {
+                    array[index][index2]=1;   
+                }
+                else{
+                    array[index][index2]=0;
+                }
+            }
+        }
+        let mostrar="";
+        for (let index = 0; index < tam; index++) {
+            for (let index2 = 0; index2 <tam ; index2++) {
+                mostrar+=array[index][index2]+"\t";
+            }
+            mostrar+= "<br>";
+        }
+        lienzo.innerHTML=mostrar;
+        console.table(array);
+    </script>
+</body>
+</html>

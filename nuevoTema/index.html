@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pixel Art Oso</title>
+</head>
+<body>
+
+<canvas id="canvas" width="200" height="200"></canvas>
+
+<script>
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+const pixelSize = 20;
+
+// 0 = transparente/blanco
+// 1 = café claro
+// 2 = café oscuro
+// 3 = negro
+
+const oso = [
+  [0,1,0,0,0,1,0],
+  [1,2,1,0,1,2,1],
+  [0,1,2,2,2,1,0],
+  [0,2,3,2,3,2,0],
+  [0,2,2,2,2,2,0],
+  [0,1,2,2,2,1,0],
+  [0,0,1,1,1,0,0]
+];
+
+const colores = {
+  0: "#ffffff",
+  1: "#c68642",
+  2: "#8d5524",
+  3: "#000000"
+};
+
+for (let y = 0; y < oso.length; y++) {
+  for (let x = 0; x < oso[y].length; x++) {
+    const valor = oso[y][x];
+    ctx.fillStyle = colores[valor];
+    ctx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize);
+  }
+}
+</script>
+
+</body>
+</html>
